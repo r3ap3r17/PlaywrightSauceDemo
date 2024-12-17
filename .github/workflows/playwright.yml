@@ -11,6 +11,8 @@ jobs:
         node-version: lts/*
     - name: Install dependencies
       run: npm install
+    - name: Install TypeScript
+      run: npm install typescript --save-dev
     - name: Compile code
       run: npx tsc -p tsconfig.json
 
