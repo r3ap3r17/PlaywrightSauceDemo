@@ -1,4 +1,3 @@
-# Compile all code
 name: Compile & Build branch
 on:
   push:
@@ -15,7 +14,6 @@ jobs:
     - name: Compile code
       run: npx tsc -p tsconfig.json
 
-# Run all tests in e2e folder
 name: Playwright E2E Tests
 on:
   workflow_dispatch:
@@ -41,7 +39,6 @@ jobs:
         path: playwright-report/
         retention-days: 30
 
-# Run all testt
 name: Playwright All Tests
 on:
   workflow_dispatch:
