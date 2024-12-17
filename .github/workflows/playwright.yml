@@ -1,3 +1,21 @@
+# Compile all code
+name: Compile & Build branch
+on:
+  push:
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+      with:
+        node-version: lts/*
+    - name: Install dependencies
+      run: npm install
+    - name: Compile code
+      run: npx tsc -p tsconfig.json
+
+# Run all tests in e2e folder
 name: Playwright E2E Tests
 on:
   workflow_dispatch:
@@ -15,7 +33,7 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Playwright tests
-      run: npx playwright test
+      run: npx playwright test tests/e2e
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
@@ -23,6 +41,7 @@ jobs:
         path: playwright-report/
         retention-days: 30
 
+# Run all testt
 name: Playwright All Tests
 on:
   workflow_dispatch:

@@ -1,7 +1,7 @@
 import { expect, Locator, Page } from "@playwright/test";
 
 export class BaseActions {
-    private page: Page;
+    private page: Page = null;
 
     private get getPage(): Page {
         return this.page;

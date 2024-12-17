@@ -1,5 +1,6 @@
 {
   "name": "playwrightsaucedemo",
+  "build": "tsc",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {},
@@ -10,5 +11,8 @@
   "devDependencies": {
     "@playwright/test": "^1.49.1",
     "@types/node": "^22.10.2"
+  },
+  "dependencies": {
+    "typescript": "^5.7.2"
   }
 }
