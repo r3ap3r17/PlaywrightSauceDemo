@@ -7,16 +7,16 @@ const enum LogColor {
 }
 
 export const logger = {
-    log: (color: LogColor, type: string, message: string) => {
+    _log: (color: LogColor, type: string, message: string) => {
         console.log(`\x1b[${color}m[${type}]:\x1b[0m ${message}`);
     },
     info: (message: string) => {
-        logger.log(LogColor.Green, "INFO", message);
+        logger._log(LogColor.Green, "INFO", message);
     },
     error: (message: string) => {
-        logger.log(LogColor.Red, "ERROR", message);
+        logger._log(LogColor.Red, "ERROR", message);
     },
     warn: (message: string) => {
-        logger.log(LogColor.Yellow, "WARN", message);
+        logger._log(LogColor.Yellow, "WARN", message);
     },
 };

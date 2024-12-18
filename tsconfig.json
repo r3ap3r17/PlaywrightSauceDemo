@@ -8,7 +8,7 @@
         "esModuleInterop": true
     },
     "include": [
-        "src/**/*.ts",
+        "builder/**/*.ts",
         "tests/**/*.ts"
     ],
     "exclude": [
