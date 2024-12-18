@@ -1,6 +1,9 @@
 name: Compile & Build branch
 on:
   push:
+  pull_request:
+    types:
+      - closed
 jobs:
   compile:
     runs-on: ubuntu-latest
