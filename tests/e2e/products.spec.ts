@@ -1,19 +1,29 @@
-import test from '../../builder/base/BaseTest';
+import test from '../../builder/base/PageManager';
 
-const UserCredentials = {
-    VALID_USERNAME: "standard_user",
-    LOCKED_USERNAME: "locked_out_user",
-    PASSWORD: "secret_sauce",
-    INCORRECT_PASSWORD: "incorrect_sauce"
-}
 
 test.describe('Product page tests', () => {
+    // test.use({ storageState: 'playwright/.auth/user.json' });
 
-    test('Product is displayed', async ({ loginPage, productsPage }) => {
+    test('Product 1 is displayed', async ({ productsPage }) => {
         const PRODUCT_TITLE = 'Sauce Labs Backpack';
 
-        await loginPage.navigateToLoginPage();
-        await loginPage.login(UserCredentials.VALID_USERNAME, UserCredentials.PASSWORD);
+        await productsPage.navigateToProductsPage();
+        await productsPage.validateProductsLogoIsDisplayed();
+        await productsPage.validateProductIsDisplayedByTitle(PRODUCT_TITLE);
+    });
+
+    test('Product 2 is displayed', async ({ productsPage }) => {
+        const PRODUCT_TITLE = 'Sauce Labs Backpack';
+
+        await productsPage.navigateToProductsPage();
+        await productsPage.validateProductsLogoIsDisplayed();
+        await productsPage.validateProductIsDisplayedByTitle(PRODUCT_TITLE);
+    });
+
+    test('Product 3 is displayed', async ({ productsPage }) => {
+        const PRODUCT_TITLE = 'Sauce Labs Backpack';
+
+        await productsPage.navigateToProductsPage();
         await productsPage.validateProductsLogoIsDisplayed();
         await productsPage.validateProductIsDisplayedByTitle(PRODUCT_TITLE);
     });

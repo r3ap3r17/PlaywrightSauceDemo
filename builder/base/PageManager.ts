@@ -11,15 +11,13 @@ const test = baseTest.extend<{
 }>({
     // Fixture for LoginPage
     loginPage: async ({ page }, use) => {
-        const loginPage = new LoginPage();
-        loginPage.setPage = page;
+        const loginPage = new LoginPage(page);
         await use(loginPage);
     },
 
     // Fixture for DashboardPage
     productsPage: async ({ page }, use) => {
-        const productsPage = new ProductsPage();
-        productsPage.setPage = page;
+        const productsPage = new ProductsPage(page);
         await use(productsPage);
     }
 });

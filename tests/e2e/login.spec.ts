@@ -1,4 +1,4 @@
-import test from '../../builder/base/BaseTest';
+import test from '../../builder/base/PageManager';
 import { ErrorMessages } from '../../builder/constants/ErrorMessages';
 
 const UserCredentials = {
@@ -9,6 +9,7 @@ const UserCredentials = {
 }
 
 test.describe('Login tests', () => {
+    test.use({ storageState: { cookies: [], origins: [] } });
 
     test('Valid login', async ({ loginPage, productsPage }) => {
         await loginPage.navigateToLoginPage();

@@ -1,14 +1,14 @@
 import { expect, Locator, Page } from "@playwright/test";
 
 export class BaseActions {
-    private page: Page = null;
+    protected page: Page;
+
+    constructor(page: Page) {
+        this.page = page;
+    }
 
     private get getPage(): Page {
         return this.page;
-    }
-
-    public set setPage(page: Page) {
-        this.page = page;
     }
 
     async goTo(url: string): Promise<void> {

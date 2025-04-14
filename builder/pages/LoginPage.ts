@@ -1,6 +1,5 @@
 import { BaseActions } from '../base/BaseActions';
-import { expect } from '@playwright/test';
-import { logger } from "../utils/Logger";
+import { expect, Page } from '@playwright/test';
 
 
 export class LoginPage extends BaseActions {
@@ -8,6 +7,10 @@ export class LoginPage extends BaseActions {
     private readonly passwordField: string = "#password";
     private readonly loginButton: string = "#login-button";
     private readonly errorMessage: string = "div.error-message-container > h3";
+
+    constructor(page: Page) {
+        super(page);
+    }
 
     async navigateToLoginPage(): Promise<void> {
         await this.goTo("/");
